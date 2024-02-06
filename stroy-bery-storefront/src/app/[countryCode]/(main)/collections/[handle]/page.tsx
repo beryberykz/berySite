@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const metadata = {
-    title: `${collection.title} | Medusa Store`,
+    title: `Купить ${collection.title} | в Караганде, Астане, Алма-Ате Шымкенте, Павлодаре, Усть-Каменогорске`,
     description: `${collection.title} collection`,
   } as Metadata
 
