@@ -153,10 +153,10 @@ export default function ProductActions({
           isLoading={isAdding}
         >
           {!variant
-            ? "Select variant"
+            ? "Выбереите Варианты"
             : !inStock
-            ? "Out of stock"
-            : "Add to cart"}
+            ? "Нет на складе"
+            : "Добавить в Корзину"}
         </Button>
         <MobileActions
           product={product}

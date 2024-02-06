@@ -15,9 +15,9 @@ const fetchCollections = async () => {
 }
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Купить поликарбонат и теплицы в Караганде, Астане, Алма-Ате и других городах - СтройБери",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "Широкий выбор поликарбоната и теплиц в Караганде, Астане, Алма-Ате, Шымкенте, Павлодаре, Усть-Каменогорске и других городах от компании СтройБери. У нас вы найдете сотовый, монолитный, профилирующий поликарбонат, а также высококачественные теплицы и навесы. Закажите прямо сейчас!",
 }
 
 const getCollectionsWithProducts = async (
