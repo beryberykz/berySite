@@ -8,10 +8,14 @@ export function SubmitButton({
   children,
   variant = "primary",
   className,
+  handleClick,
+  sendDataToBitrix,
 }: {
   children: React.ReactNode
   variant?: "primary" | "secondary" | "transparent" | "danger" | null
   className?: string
+  handleClick:any
+  sendDataToBitrix:any
 }) {
   const { pending } = useFormStatus()
 
@@ -22,6 +26,7 @@ export function SubmitButton({
       type="submit"
       isLoading={pending}
       variant={variant}
+      onClick={sendDataToBitrix}
     >
       {children}
     </Button>

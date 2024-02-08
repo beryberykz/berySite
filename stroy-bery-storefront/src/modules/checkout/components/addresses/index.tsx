@@ -20,6 +20,7 @@ import { SubmitButton } from "../submit-button"
 import { useFormState } from "react-dom"
 import ErrorMessage from "../error-message"
 import compareAddresses from "@lib/util/compare-addresses"
+import { useEffect, useState } from "react"
 
 const Addresses = ({
   cart,
@@ -48,6 +49,113 @@ const Addresses = ({
   }
 
   const [message, formAction] = useFormState(setAddresses, null)
+
+  const [formData, setFormData] = useState({
+    "shipping_address.first_name": cart?.shipping_address?.first_name || "",
+    "shipping_address.last_name": cart?.shipping_address?.last_name || "",
+    "shipping_address.address_1": cart?.shipping_address?.address_1 || "",
+    "shipping_address.company": cart?.shipping_address?.company || "",
+    "shipping_address.postal_code": cart?.shipping_address?.postal_code || "",
+    "shipping_address.city": cart?.shipping_address?.city || "",
+    "shipping_address.country_code":
+      cart?.shipping_address?.country_code || countryCode || "",
+    "shipping_address.province": cart?.shipping_address?.province || "",
+    email: cart?.email || "",
+    "shipping_address.phone": cart?.shipping_address?.phone || "",
+  })
+  
+
+  useEffect(() => {
+    setFormData({
+      "shipping_address.first_name": cart?.shipping_address?.first_name || "",
+      "shipping_address.last_name": cart?.shipping_address?.last_name || "",
+      "shipping_address.address_1": cart?.shipping_address?.address_1 || "",
+      "shipping_address.company": cart?.shipping_address?.company || "",
+      "shipping_address.postal_code": cart?.shipping_address?.postal_code || "",
+      "shipping_address.city": cart?.shipping_address?.city || "",
+      "shipping_address.country_code":
+        cart?.shipping_address?.country_code || "",
+      "shipping_address.province": cart?.shipping_address?.province || "",
+      email: cart?.email || "",
+      "shipping_address.phone": cart?.shipping_address?.phone || "",
+    })
+  }, [cart?.shipping_address, cart?.email])
+
+  
+
+  const sendDataToBitrix = (formData: { [x: string]: string }) => {
+    
+    
+    let queryUrl =
+      "https://stroybery.bitrix24.ru/rest/32031/b47gon8vyce82hme/crm.lead.add.json"
+
+    // Формирование данных для отправки
+    let queryData = new URLSearchParams()
+    queryData.append(
+      "fields[NAME]",
+      cart?.shipping_address?.first_name+
+        " " +
+        cart?.shipping_address.last_name
+    )
+    queryData.append("fields[EMAIL][0][VALUE]", cart?.email)
+    queryData.append(
+      "fields[PHONE][0][VALUE]",
+      cart?.shipping_address.phone
+    )
+    queryData.append(
+      "fields[ADDRESS][0][CITY]",
+      cart?.shipping_address.city
+    )
+    queryData.append(
+      "fields[ADDRESS][0][POSTAL_CODE]",
+      cart?.shipping_address.postal_code
+    )
+    queryData.append(
+      "fields[ADDRESS][0][STREET]",
+      cart?.shipping_address.address_1
+    )
+    queryData.append(
+      "fields[ADDRESS][0][COUNTRY_CODE]",
+      cart?.shipping_address.country_code
+    )
+    queryData.append(
+      "fields[ADDRESS][0][PROVINCE]",
+      cart?.shipping_address.province
+    )
+    queryData.append(
+      "fields[ADDRESS][0][COMPANY_TITLE]",
+      cart?.shipping_address.company
+    )
+
+    fetch(queryUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: queryData,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Ошибка при отправке данных на сервер Bitrix24")
+        }
+        return response.json()
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error)
+        throw new Error("Ошибка при отправке данных на сервер Bitrix24")
+      })
+    console.log(cart)
+    console.log(formData)
+    const queryParams = {};
+    for (const [key, value] of queryData) {
+    queryParams[key] = value;
+}
+console.log(queryParams);
+  }
+
+  const handleClick = (formData: any, sendDataToBitrix: (formData: any) => void) => {
+    console.log("hype")
+  }
 
   return (
     <div className="bg-white">
@@ -79,6 +187,8 @@ const Addresses = ({
               checked={sameAsSBilling}
               onChange={toggleSameAsBilling}
               cart={cart}
+              setFormData={setFormData}
+              formData={formData}
             />
 
             {!sameAsSBilling && (
@@ -93,7 +203,10 @@ const Addresses = ({
                 <BillingAddress cart={cart} countryCode={countryCode} />
               </div>
             )}
-            <SubmitButton className="mt-6">Continue to delivery</SubmitButton>
+            <SubmitButton
+                handleClick={handleClick}
+                sendDataToBitrix={sendDataToBitrix}
+               className="mt-6">Continue to delivery</SubmitButton>
             <ErrorMessage error={message} />
           </div>
         </form>

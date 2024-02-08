@@ -12,27 +12,18 @@ const ShippingAddress = ({
   checked,
   onChange,
   countryCode,
+  formData,
+  setFormData,
 }: {
   customer: Omit<Customer, "password_hash"> | null
   cart: Omit<Cart, "refundable_amount" | "refunded_total"> | null
   checked: boolean
   onChange: () => void
   countryCode: string
+  formData:any
+  setFormData: any
 }) => {
-  const [formData, setFormData] = useState({
-    "shipping_address.first_name": cart?.shipping_address?.first_name || "",
-    "shipping_address.last_name": cart?.shipping_address?.last_name || "",
-    "shipping_address.address_1": cart?.shipping_address?.address_1 || "",
-    "shipping_address.company": cart?.shipping_address?.company || "",
-    "shipping_address.postal_code": cart?.shipping_address?.postal_code || "",
-    "shipping_address.city": cart?.shipping_address?.city || "",
-    "shipping_address.country_code":
-      cart?.shipping_address?.country_code || countryCode || "",
-    "shipping_address.province": cart?.shipping_address?.province || "",
-    email: cart?.email || "",
-    "shipping_address.phone": cart?.shipping_address?.phone || "",
-  })
-
+  
   const countriesInRegion = useMemo(
     () => cart?.region.countries.map((c) => c.iso_2),
     [cart?.region]
@@ -46,23 +37,6 @@ const ShippingAddress = ({
       ),
     [customer?.shipping_addresses, countriesInRegion]
   )
-
-  useEffect(() => {
-    setFormData({
-      "shipping_address.first_name": cart?.shipping_address?.first_name || "",
-      "shipping_address.last_name": cart?.shipping_address?.last_name || "",
-      "shipping_address.address_1": cart?.shipping_address?.address_1 || "",
-      "shipping_address.company": cart?.shipping_address?.company || "",
-      "shipping_address.postal_code": cart?.shipping_address?.postal_code || "",
-      "shipping_address.city": cart?.shipping_address?.city || "",
-      "shipping_address.country_code":
-        cart?.shipping_address?.country_code || "",
-      "shipping_address.province": cart?.shipping_address?.province || "",
-      email: cart?.email || "",
-      "shipping_address.phone": cart?.shipping_address?.phone || "",
-    })
-  }, [cart?.shipping_address, cart?.email])
-
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLInputElement | HTMLSelectElement
@@ -73,7 +47,6 @@ const ShippingAddress = ({
       [e.target.name]: e.target.value,
     })
   }
-
   return (
     <>
       {customer && (addressesInRegion?.length || 0) > 0 && (
