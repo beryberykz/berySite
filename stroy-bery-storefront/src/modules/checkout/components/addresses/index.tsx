@@ -25,9 +25,11 @@ import { useEffect, useState } from "react"
 const Addresses = ({
   cart,
   customer,
+  
 }: {
   cart: Omit<Cart, "refundable_amount" | "refunded_total"> | null
   customer: Omit<Customer, "password_hash"> | null
+  
 }) => {
   const searchParams = useSearchParams()
   const router = useRouter()
@@ -123,9 +125,22 @@ const Addresses = ({
       cart?.shipping_address.province
     )
     queryData.append(
-      "fields[ADDRESS][0][COMPANY_TITLE]",
-      cart?.shipping_address.company
+      "fields[COMMENTS]",cart.items
+      .map(items => ({
+        Вариант: items.description,
+        Товар: items.title,
+        Колличество: items.quantity
+      }))
+      .map(obj => ` Товар: ${obj.Товар}, Вариант:${obj.Вариант}, Колличество:${obj.Колличество} `)
+      .join(',\n')+ ` \nСумма: `+ cart?.total)
+     
+    queryData.append(
+      "fields[SOURCE_ID]",
+      'другое 16'
     )
+    
+    
+    
 
     fetch(queryUrl, {
       method: "POST",
