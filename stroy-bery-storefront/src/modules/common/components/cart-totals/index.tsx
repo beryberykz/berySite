@@ -33,9 +33,9 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
       <div className="flex flex-col gap-y-2 txt-medium text-ui-fg-subtle ">
         <div className="flex items-center justify-between">
           <span className="flex gap-x-1 items-center">
-            Subtotal
+          Предварительно
             <Tooltip content="Cart total excluding shipping and taxes.">
-              <InformationCircleSolid color="var(--fg-muted)" />
+              <InformationCircleSolid color="var(#000000)" />
             </Tooltip>
           </span>
           <span>{getAmount(subtotal)}</span>
@@ -57,17 +57,17 @@ const CartTotals: React.FC<CartTotalsProps> = ({ data }) => {
           </div>
         )}
         <div className="flex items-center justify-between">
-          <span>Shipping</span>
+          <span>Доставка</span>
           <span>{getAmount(shipping_total)}</span>
         </div>
         <div className="flex justify-between">
-          <span className="flex gap-x-1 items-center ">Taxes</span>
+          <span className="flex gap-x-1 items-center ">Что-то вместо налога</span>
           <span>{getAmount(tax_total)}</span>
         </div>
       </div>
       <div className="h-px w-full border-b border-gray-200 my-4" />
       <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
-        <span>Total</span>
+        <span>Итоговая сумма</span>
         <span className="txt-xlarge-plus">{getAmount(total)}</span>
       </div>
       <div className="h-px w-full border-b border-gray-200 mt-4" />

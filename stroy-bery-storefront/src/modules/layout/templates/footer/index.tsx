@@ -33,7 +33,7 @@ export default async function Footer() {
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+             СТРОЙБЕРИ магазин
             </LocalizedClientLink>
           </div>
           
@@ -41,7 +41,7 @@ export default async function Footer() {
             {productCategories && productCategories?.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">
-                  Categories
+                  Категории
                 </span>
                 <ul className="grid grid-cols-1 gap-2">
                   {productCategories?.slice(0, 6).map((c) => {
@@ -94,7 +94,7 @@ export default async function Footer() {
             {productCollections && productCollections.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">
-                  Collectionsss
+                  Категории
                 </span>
                 <ul
                   className={clx(
@@ -118,7 +118,7 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
+              <span className="txt-small-plus txt-ui-fg-base">СТРОЙБЕРИ</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
@@ -127,7 +127,7 @@ export default async function Footer() {
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    GitHub
+                    Ссылка
                   </a>
                 </li>
                 <li>
@@ -137,7 +137,7 @@ export default async function Footer() {
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Documentation
+                    Ссылка
                   </a>
                 </li>
                 <li>
@@ -147,18 +147,18 @@ export default async function Footer() {
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Source code
+                    Ссылка
                   </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
+        <div className="flex w-full mb-16 justify-between text-black">
           <Text className="txt-compact-small">
-            © {new Date().getFullYear()} Medusa Store. All rights reserved.
+            © {new Date().getFullYear()} СТРОЙБЕРИ. Все права защищены.
           </Text>
-          <MedusaCTA />
+          
         </div>
       </div>
     </footer>

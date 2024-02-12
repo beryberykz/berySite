@@ -52,14 +52,14 @@ const ShippingAddress = ({
       {customer && (addressesInRegion?.length || 0) > 0 && (
         <Container className="mb-6 flex flex-col gap-y-4 p-5">
           <p className="text-small-regular">
-            {`Hi ${customer.first_name}, do you want to use one of your saved addresses?`}
+            {`Здраствуйте ${customer.first_name}, хотите использовать ваш сохранённый адрес?`}
           </p>
           <AddressSelect addresses={customer.shipping_addresses} cart={cart} />
         </Container>
       )}
       <div className="grid grid-cols-2 gap-4">
         <Input
-          label="First name"
+          label="Имя"
           name="shipping_address.first_name"
           autoComplete="given-name"
           value={formData["shipping_address.first_name"]}
@@ -67,7 +67,7 @@ const ShippingAddress = ({
           required
         />
         <Input
-          label="Last name"
+          label="Фамилия"
           name="shipping_address.last_name"
           autoComplete="family-name"
           value={formData["shipping_address.last_name"]}
@@ -75,27 +75,10 @@ const ShippingAddress = ({
           required
         />
         <Input
-          label="Address"
+          label="Адресс"
           name="shipping_address.address_1"
           autoComplete="address-line1"
           value={formData["shipping_address.address_1"]}
-          onChange={handleChange}
-          required
-        />
-        
-        <Input
-          label="Postal code"
-          name="shipping_address.postal_code"
-          autoComplete="postal-code"
-          value={formData["shipping_address.postal_code"]}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          label="City"
-          name="shipping_address.city"
-          autoComplete="address-level2"
-          value={formData["shipping_address.city"]}
           onChange={handleChange}
           required
         />
@@ -106,13 +89,6 @@ const ShippingAddress = ({
           value={formData["shipping_address.country_code"]}
           onChange={handleChange}
           required
-        />
-        <Input
-          label="State / Province"
-          name="shipping_address.province"
-          autoComplete="address-level1"
-          value={formData["shipping_address.province"]}
-          onChange={handleChange}
         />
       </div>
       <div className="my-8">

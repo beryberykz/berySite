@@ -72,7 +72,7 @@ const Item: React.FC<AccordionItemProps> = ({
                       />
                     )}
                     {!active && (
-                      <CircleMiniSolid className="text-ui-fg-muted" />
+                     <CircleMiniSolid className="text-ui-fg-muted" />
                     )}
                   </>
                 )}

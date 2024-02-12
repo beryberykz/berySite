@@ -335,8 +335,7 @@ const OnboardingFlow = (props: OnboardingWidgetProps) => {
   // the setup is closed
   const onHide = () => {
     mutate({ is_complete: true });
-  };
-
+  }
   // used to get text for get started header
   const getStartedText = () => {
     switch(process.env.MEDUSA_ADMIN_ONBOARDING_TYPE) {

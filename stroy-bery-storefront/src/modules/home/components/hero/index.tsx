@@ -14,7 +14,7 @@ const Hero = () => {
           </Heading>
           <Heading
             level="h2"
-            className="text-3xl leading-10 text-ui-fg-subtle font-normal"
+            className="text-3xl leading-10 text-black font-normal"
           >Строительные материалы оптом и в розницу
           </Heading>
         </span>

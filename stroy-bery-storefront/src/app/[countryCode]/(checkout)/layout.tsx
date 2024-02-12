@@ -16,16 +16,16 @@ export default function CheckoutLayout({
             className="text-small-semi text-ui-fg-base flex items-center gap-x-2 uppercase flex-1 basis-0"
           >
             <ChevronDown className="rotate-90" size={16} />
-            <span className="mt-px hidden small:block txt-compact-plus text-ui-fg-subtle hover:text-ui-fg-base ">
-              Back to shopping cart
+            <span className="mt-px hidden small:block txt-compact-plus text-black hover:text-ui-fg-base ">
+              Вернутся к карточке товара
             </span>
-            <span className="mt-px block small:hidden txt-compact-plus text-ui-fg-subtle hover:text-ui-fg-base">
-              Back
+            <span className="mt-px block small:hidden txt-compact-plus text-black hover:text-ui-fg-base">
+              Назад
             </span>
           </LocalizedClientLink>
           <LocalizedClientLink
             href="/"
-            className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
+            className="txt-compact-xlarge-plus text-black hover:text-ui-fg-base uppercase"
           >
            Стройбери
           </LocalizedClientLink>

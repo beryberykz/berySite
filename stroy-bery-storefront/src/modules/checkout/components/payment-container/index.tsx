@@ -52,7 +52,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
                   content="You can add a user-friendly name and icon for this payment provider in 'src/modules/checkout/components/payment/index.tsx'"
                   className="min-w-fit"
                 >
-                  <InformationCircleSolid color="var(--fg-muted)" />
+                  <InformationCircleSolid color="var(#000000)" />
                 </Tooltip>
               )}
 

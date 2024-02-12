@@ -95,23 +95,14 @@ const Addresses = ({
     let queryData = new URLSearchParams()
     queryData.append(
       "fields[NAME]",
-      cart?.shipping_address?.first_name+
-        " " +
-        cart?.shipping_address.last_name
+      cart?.shipping_address.first_name
     )
     queryData.append("fields[EMAIL][0][VALUE]", cart?.email)
     queryData.append(
       "fields[PHONE][0][VALUE]",
       cart?.shipping_address.phone
     )
-    queryData.append(
-      "fields[ADDRESS][0][CITY]",
-      cart?.shipping_address.city
-    )
-    queryData.append(
-      "fields[ADDRESS][0][POSTAL_CODE]",
-      cart?.shipping_address.postal_code
-    )
+
     queryData.append(
       "fields[ADDRESS][0][STREET]",
       cart?.shipping_address.address_1
@@ -120,10 +111,7 @@ const Addresses = ({
       "fields[ADDRESS][0][COUNTRY_CODE]",
       cart?.shipping_address.country_code
     )
-    queryData.append(
-      "fields[ADDRESS][0][PROVINCE]",
-      cart?.shipping_address.province
-    )
+
     queryData.append(
       "fields[COMMENTS]",cart.items
       .map(items => ({
@@ -138,8 +126,14 @@ const Addresses = ({
       "fields[SOURCE_ID]",
       'другое 16'
     )
-    
-    
+    queryData.append(
+      "fields[ID]",
+      'ТестовыйСайт'
+    )
+    queryData.append(
+      "fields[TITLE]",
+      'ТестовыйСайт'
+    )
     
 
     fetch(queryUrl, {
@@ -179,7 +173,7 @@ console.log(queryParams);
           level="h2"
           className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
         >
-          Address
+          Адресс
           {!isOpen && <CheckCircleSolid />}
         </Heading>
         {!isOpen && cart?.shipping_address && (
@@ -221,7 +215,7 @@ console.log(queryParams);
             <SubmitButton
                 handleClick={handleClick}
                 sendDataToBitrix={sendDataToBitrix}
-               className="mt-6">Continue to delivery</SubmitButton>
+               className="mt-6">Перейти к Доставке</SubmitButton>
             <ErrorMessage error={message} />
           </div>
         </form>
@@ -233,7 +227,7 @@ console.log(queryParams);
                 <div className="flex items-start gap-x-1 w-full">
                   <div className="flex flex-col w-1/3">
                     <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                      Shipping Address
+                      Адресс доставки
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
                       {cart.shipping_address.first_name}{" "}
@@ -254,7 +248,7 @@ console.log(queryParams);
 
                   <div className="flex flex-col w-1/3 ">
                     <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                      Contact
+                      Контакты
                     </Text>
                     <Text className="txt-medium text-ui-fg-subtle">
                       {cart.shipping_address.phone}

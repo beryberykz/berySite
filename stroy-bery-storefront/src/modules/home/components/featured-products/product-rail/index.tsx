@@ -26,18 +26,19 @@ export default function ProductRail({
           Каталог
         </InteractiveLink>
       </div>
-      <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36">
-        {products &&
-          products.map((product) => (
-            <li key={product.id}>
-              <ProductPreview
-                productPreview={product}
-                region={region}
-                isFeatured
-              />
-            </li>
-          ))}
-      </ul>
+      <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36 justify-items-center">
+  {products &&
+    products.map((product) => (
+      <li key={product.id}>
+        <ProductPreview
+          productPreview={product}
+          region={region}
+          isFeatured
+        />
+      </li>
+    ))}
+</ul>
+
     </div>
   )
 }
