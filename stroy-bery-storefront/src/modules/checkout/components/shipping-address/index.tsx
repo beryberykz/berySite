@@ -42,7 +42,7 @@ const ShippingAddress = ({
       HTMLInputElement | HTMLInputElement | HTMLSelectElement
     >
   ) => {
-    setFormData({
+    setFormData({ 
       ...formData,
       [e.target.name]: e.target.value,
     })

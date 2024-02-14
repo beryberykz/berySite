@@ -9,26 +9,26 @@ export function SubmitButton({
   variant = "primary",
   className,
   handleClick,
-  sendDataToBitrix,
+  
 }: {
   children: React.ReactNode
   variant?: "primary" | "secondary" | "transparent" | "danger" | null
   className?: string
-  handleClick:any
-  sendDataToBitrix:any
+  handleClick?:any
+  sendDataToBitrix?:any
 }) {
   const { pending } = useFormStatus()
 
   return (
     <Button
-      size="large"
-      className={className}
-      type="submit"
-      isLoading={pending}
-      variant={variant}
-      onClick={sendDataToBitrix}
-    >
-      {children}
-    </Button>
+    size="large"
+    className={className}
+    type="button" // Изменение типа кнопки на "button"
+    isLoading={pending}
+    variant={variant}
+    onClick={handleClick} // Используем handleClick вместо sendDataToBitrix
+  >
+    {children}
+  </Button>
   )
 }

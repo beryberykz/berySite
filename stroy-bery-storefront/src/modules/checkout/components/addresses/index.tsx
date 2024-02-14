@@ -89,31 +89,35 @@ const Addresses = ({
     
     
     let queryUrl =
-      "https://stroybery.bitrix24.ru/rest/32031/b47gon8vyce82hme/crm.lead.add.json"
+      "https://stroybery.bitrix24.ru/rest/32031/ /crm.lead.add.json"
 
     // Формирование данных для отправки
     let queryData = new URLSearchParams()
     queryData.append(
       "fields[NAME]",
-      cart?.shipping_address.first_name
+      formData["shipping_address.first_name"]
     )
-    queryData.append("fields[EMAIL][0][VALUE]", cart?.email)
+    queryData.append(
+      "fields[LAST_NAME]",
+      formData["shipping_address.last_name"]
+    )
+    queryData.append("fields[EMAIL][0][VALUE]", formData["cart?.email"])
     queryData.append(
       "fields[PHONE][0][VALUE]",
-      cart?.shipping_address.phone
+      formData["shipping_address.phone"]
     )
 
     queryData.append(
       "fields[ADDRESS][0][STREET]",
-      cart?.shipping_address.address_1
+      formData["shipping_address.address_1"]
     )
     queryData.append(
       "fields[ADDRESS][0][COUNTRY_CODE]",
-      cart?.shipping_address.country_code
+      formData["shipping_address.first_name"]
     )
 
     queryData.append(
-      "fields[COMMENTS]",cart.items
+      "fields[COMMENTS]",cart!.items
       .map(items => ({
         Вариант: items.description,
         Товар: items.title,
@@ -155,15 +159,15 @@ const Addresses = ({
       })
     console.log(cart)
     console.log(formData)
-    const queryParams = {};
-    for (const [key, value] of queryData) {
-    queryParams[key] = value;
-}
-console.log(queryParams);
+  //  const queryParams = {};
+    //for (const [key, value] of queryData) {
+    //queryParams[key] = value;
+//}
+//console.log(queryParams);
   }
 
-  const handleClick = (formData: any, sendDataToBitrix: (formData: any) => void) => {
-    console.log("hype")
+  const handleClick = () => {
+    sendDataToBitrix(formData);
   }
 
   return (
@@ -212,10 +216,9 @@ console.log(queryParams);
                 <BillingAddress cart={cart} countryCode={countryCode} />
               </div>
             )}
-            <SubmitButton
-                handleClick={handleClick}
-                sendDataToBitrix={sendDataToBitrix}
-               className="mt-6">Перейти к Доставке</SubmitButton>
+          <SubmitButton sendDataToBitrix={sendDataToBitrix} handleClick={handleClick} className="mt-6">
+  Перейти к Доставке
+</SubmitButton>
             <ErrorMessage error={message} />
           </div>
         </form>

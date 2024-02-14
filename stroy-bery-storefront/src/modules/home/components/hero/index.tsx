@@ -23,8 +23,7 @@ const Hero = () => {
           target="_blank"
         >
           <Button variant="secondary">
-            Тут может быть вашша ссылка
-            
+              Заказать Обратный Звонок
           </Button>
         </a>
       </div>
