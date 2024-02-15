@@ -153,7 +153,7 @@ export default function ProductActions({
           isLoading={isAdding}
         >
           {!variant
-            ? "Выбереите Варианты"
+            ? "Выберите Варианты"
             : !inStock
             ? "Нет на складе"
             : "Добавить в Корзину"}

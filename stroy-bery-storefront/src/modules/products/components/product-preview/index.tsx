@@ -43,7 +43,7 @@ export default async function ProductPreview({
         />
         <div className="border-b mt-5 pb-3">
           <div className="flex flex-col md:flex-row md:justify-between items-center">
-            <Text className="text-xl font-bold text-ui-fg-subtle md:mb-0">
+            <Text className="text-xl font-bold text-[#006039] md:mb-0">
               {productPreview.title}
             </Text>
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
@@ -51,43 +51,45 @@ export default async function ProductPreview({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="border-b col-span-full xl:h-40 mt-2 md:col-span-2">
+          <div className="border-b col-span-full xl:h-28 h mt-2 md:col-span-2">
             <p>{productPreview.description || "No description available"}</p>
-          </div>{/* Первая колонка */}
-<div className="md:col-span-1">
-  {typeof productPreview.metadata === 'object' && productPreview.metadata !== null &&
-    Object.entries(productPreview.metadata)
-      .slice(
-        0,
-        Math.ceil(Object.keys(productPreview.metadata).length / 2)
-      )
-      .map(([key, value]) => (
-        <div key={key} className="mt-1 mb-1 w-full">
-          {/* Добавлен класс w-full */}
-          <p className="text-gray-700 m-1">
-            <strong>{key}</strong>: {String(value)}
-          </p>
-        </div>
-      ))}
-</div>
+          </div>
+          {/* Первая колонка */}
+          <div className="md:col-span-1">
+            {typeof productPreview.metadata === "object" &&
+              productPreview.metadata !== null &&
+              Object.entries(productPreview.metadata)
+                .slice(
+                  0,
+                  Math.ceil(Object.keys(productPreview.metadata).length / 2)
+                )
+                .map(([key, value]) => (
+                  <div key={key} className="mt-1 mb-1 w-full">
+                    {/* Добавлен класс w-full */}
+                    <p className="text-gray-700 m-1">
+                      <strong>{key}</strong>: {String(value)}
+                    </p>
+                  </div>
+                ))}
+          </div>
 
-{/* Вторая колонка */}
-<div className="md:col-span-1">
-  {typeof productPreview.metadata === 'object' && productPreview.metadata !== null &&
-    Object.entries(productPreview.metadata)
-      .slice(
-        Math.ceil(Object.keys(productPreview.metadata).length / 2)
-      )
-      .map(([key, value]) => (
-        <div key={key} className="mt-1 mb-1 w-full">
-          {/* Добавлен класс w-full */}
-          <p className="text-gray-700 m-1">
-            <strong>{key}</strong>: {String(value)}
-          </p>
-        </div>
-      ))}
-</div>
-
+          {/* Вторая колонка */}
+          <div className="md:col-span-1">
+            {typeof productPreview.metadata === "object" &&
+              productPreview.metadata !== null &&
+              Object.entries(productPreview.metadata)
+                .slice(
+                  Math.ceil(Object.keys(productPreview.metadata).length / 2)
+                )
+                .map(([key, value]) => (
+                  <div key={key} className="mt-1 mb-1 w-full">
+                    {/* Добавлен класс w-full */}
+                    <p className="text-gray-700 m-1">
+                      <strong>{key}</strong>: {String(value)}
+                    </p>
+                  </div>
+                ))}
+          </div>
         </div>
       </div>
     </LocalizedClientLink>

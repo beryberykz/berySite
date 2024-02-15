@@ -118,43 +118,43 @@ export default async function Footer() {
               </div>
             )}
             <div className="flex flex-col gap-y-2">
-              <span className="txt-small-plus txt-ui-fg-base">СТРОЙБЕРИ</span>
+              <span className="txt-small-plus txt-ui-fg-base">СТРОЙБЕРИ в соц. сетях</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
                   <a
-                    href="https://github.com/medusajs"
+                    href="https://www.instagram.com/stroybery.kz/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Ссылка
+                    Instagram
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://docs.medusajs.com"
+                    href="https://www.tiktok.com/@stroyberykz"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Ссылка
+                    Тик-Ток
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
+                    href="https://www.facebook.com/sroybery.kz/"
                     target="_blank"
                     rel="noreferrer"
                     className="hover:text-ui-fg-base"
                   >
-                    Ссылка
+                    Facebook
                   </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
-        <div className="flex w-full mb-16 justify-between text-black">
+        <div className="flex w-full mb-16 justify-between text-[#006039]">
           <Text className="txt-compact-small">
             © {new Date().getFullYear()} СТРОЙБЕРИ. Все права защищены.
           </Text>

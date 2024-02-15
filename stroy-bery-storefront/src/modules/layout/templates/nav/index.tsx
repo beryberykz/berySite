@@ -22,13 +22,18 @@ export default async function Nav() {
           <div className="flex items-center h-full">
             <LocalizedClientLink
               href="/"
-              className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+              className="txt-compact-xlarge-plus text-[#006039] hover:text-ui-fg-base uppercase"
             >
               СтройБери
+              
             </LocalizedClientLink>
+            
           </div>
-
+          
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
+          <div className="flex items-center h-full">
+          <a href={`tel:${77078011249}`}>+7 707 801 12 49</a>
+          </div>
             <div className="hidden small:flex items-center gap-x-6 h-full">
               {process.env.FEATURE_SEARCH_ENABLED && (
                 <LocalizedClientLink

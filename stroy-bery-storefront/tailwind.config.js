@@ -1,5 +1,6 @@
 const path = require("path")
 
+
 module.exports = {
   presets: [require("@medusajs/ui-preset")],
   content: [
@@ -11,6 +12,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'herro':"url('/public/background-for-the-header-of-a-website-selling-gre.png')"
+      },
       transitionProperty: {
         width: "width margin",
         height: "height",

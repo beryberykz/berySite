@@ -19,7 +19,7 @@ export function getProductPrice({
 
   const getPercentageDiff = (original: number, calculated: number) => {
     const diff = original - calculated
-    const decrease = (diff / original) * 100
+    const decrease = (diff / original) 
 
     return decrease.toFixed()
   }

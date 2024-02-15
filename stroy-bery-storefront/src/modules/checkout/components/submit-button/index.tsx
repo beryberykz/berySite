@@ -15,7 +15,7 @@ export function SubmitButton({
   variant?: "primary" | "secondary" | "transparent" | "danger" | null
   className?: string
   handleClick?:any
-  sendDataToBitrix?:any
+  sendDataToBitrix? :any
 }) {
   const { pending } = useFormStatus()
 
@@ -23,7 +23,7 @@ export function SubmitButton({
     <Button
     size="large"
     className={className}
-    type="button" // Изменение типа кнопки на "button"
+    type="submit" // Изменение типа кнопки на "button"
     isLoading={pending}
     variant={variant}
     onClick={handleClick} // Используем handleClick вместо sendDataToBitrix

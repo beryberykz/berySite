@@ -244,8 +244,8 @@ const convertToLocale = ({
     ? new Intl.NumberFormat(locale, {
         style: "currency",
         currency: currency_code,
-        minimumFractionDigits,
-        maximumFractionDigits,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
       }).format(amount)
     : amount.toString()
 }

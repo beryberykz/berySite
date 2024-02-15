@@ -89,7 +89,7 @@ const Addresses = ({
     
     
     let queryUrl =
-      "https://stroybery.bitrix24.ru/rest/32031/ /crm.lead.add.json"
+      "https://stroybery.bitrix24.ru/rest/32031/b47gon8vyce82hme/crm.lead.add.json"
 
     // Формирование данных для отправки
     let queryData = new URLSearchParams()
@@ -101,7 +101,7 @@ const Addresses = ({
       "fields[LAST_NAME]",
       formData["shipping_address.last_name"]
     )
-    queryData.append("fields[EMAIL][0][VALUE]", formData["cart?.email"])
+    
     queryData.append(
       "fields[PHONE][0][VALUE]",
       formData["shipping_address.phone"]
@@ -159,11 +159,11 @@ const Addresses = ({
       })
     console.log(cart)
     console.log(formData)
-  //  const queryParams = {};
-    //for (const [key, value] of queryData) {
-    //queryParams[key] = value;
-//}
-//console.log(queryParams);
+    const queryParams = {};
+    for (const [key, value] of queryData) {
+    queryParams[key] = value;
+}
+console.log(queryParams);
   }
 
   const handleClick = () => {
@@ -186,7 +186,7 @@ const Addresses = ({
               onClick={handleEdit}
               className="text-ui-fg-interactive hover:text-ui-fg-interactive-hover"
             >
-              Edit
+              Изменить
             </button>
           </Text>
         )}

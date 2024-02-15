@@ -19,10 +19,10 @@ export default async function Orders() {
   return (
     <div className="w-full">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Orders</h1>
+        <h1 className="text-2xl-semi">Заказы</h1>
         <p className="text-base-regular">
-          View your previous orders and their status. You can also create
-          returns or exchanges for your orders if needed.
+          Просмотрите свои предыдущие заказы и их статус. При необходимости вы
+          также можете оформить возврат или обмен ваших заказов.
         </p>
       </div>
       <div>

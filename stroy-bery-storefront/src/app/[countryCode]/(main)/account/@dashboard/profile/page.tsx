@@ -10,8 +10,8 @@ import { getCustomer, listRegions } from "@lib/data"
 import { notFound } from "next/navigation"
 
 export const metadata: Metadata = {
-  title: "Profile",
-  description: "View and edit your Medusa Store profile.",
+  title: "Профиль",
+  description: "Просмотр и редактирование вашего профиля в магазине Стройбери.",
 }
 
 export default async function Profile() {
@@ -25,11 +25,11 @@ export default async function Profile() {
   return (
     <div className="w-full">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Profile</h1>
+        <h1 className="text-2xl-semi">Профиль</h1>
         <p className="text-base-regular">
-          View and update your profile information, including your name, email,
-          and phone number. You can also update your billing address, or change
-          your password.
+          Просматривайте и обновляйте информацию своего профиля, включая ваше
+          имя, адрес электронной почты и номер телефона. Вы также можете
+          обновить свой платежный адрес или изменить пароль.
         </p>
       </div>
       <div className="flex flex-col gap-y-8 w-full">
