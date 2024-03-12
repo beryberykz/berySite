@@ -9,12 +9,13 @@ import { Fragment } from "react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
 
+
+
 const SideMenuItems = {
   Главная: "/",
-  Ассортимент: "/store",
-  Поликарбонат: "/search",
-  Металоконструкции: "/account",
-  Монолитный: "/cart",
+  Монолитный: "/collections/monolithic-polycarbonate",
+  Сотовый: "/collections/profiled-polycarbonate",
+  Профилированный: "/collections/polycarbonate",
 }
 
 const SideMenu = ({ regions }: { regions: Region[] | null }) => {

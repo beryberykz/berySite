@@ -51,7 +51,7 @@ export default async function ProductPreview({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div className="border-b col-span-full xl:h-28 h mt-2 md:col-span-2">
+          <div className="sxsmall:hidden msmall:block border-b col-span-full xl:h-32 h mt-2 md:col-span-2">
             <p>{productPreview.description || "No description available"}</p>
           </div>
           {/* Первая колонка */}

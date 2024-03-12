@@ -93,7 +93,7 @@ const ShippingAddress = ({
       </div>
       <div className="my-8">
         <Checkbox
-          label="Same as billing address"
+          label="Адресс доставки совпдает с платёжным адрессом"
           name="same_as_billing"
           checked={checked}
           onChange={onChange}
@@ -101,7 +101,7 @@ const ShippingAddress = ({
       </div>
       <div className="grid grid-cols-2 gap-4 mb-4">
         <Input
-          label="Email"
+          label="Электронная Почта"
           name="email"
           type="email"
           title="Enter a valid email address."
@@ -111,7 +111,7 @@ const ShippingAddress = ({
           required
         />
         <Input
-          label="Phone"
+          label="Телефон"
           name="shipping_address.phone"
           autoComplete="tel"
           value={formData["shipping_address.phone"]}

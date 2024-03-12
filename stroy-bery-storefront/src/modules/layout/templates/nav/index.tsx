@@ -29,10 +29,12 @@ export default async function Nav() {
             </LocalizedClientLink>
             
           </div>
-          
+          <div>
+            <p className="ml-5 xsmall:block text-base msmall:hidden">+7747858 2254</p>
+          </div>
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
           <div className="flex items-center h-full">
-          <a href={`tel:${77078011249}`}>+7 707 801 12 49</a>
+          <a className="sxsmall:hidden xsmall:hidden msmall:block" href={`tel:${77078011249}`}>+7 707 801 12 49</a>
           </div>
             <div className="hidden small:flex items-center gap-x-6 h-full">
               {process.env.FEATURE_SEARCH_ENABLED && (

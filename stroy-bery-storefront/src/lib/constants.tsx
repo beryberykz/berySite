@@ -27,7 +27,7 @@ export const paymentInfoMap: Record<
     icon: <PayPal />,
   },
   manual: {
-    title: "Test payment",
+    title: "Выставленная оплата",
     icon: <CreditCard />,
   },
   // Add more payment providers here

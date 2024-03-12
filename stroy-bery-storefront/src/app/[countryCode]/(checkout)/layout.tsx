@@ -27,7 +27,7 @@ export default function CheckoutLayout({
             href="/"
             className="txt-compact-xlarge-plus text-[#006039] hover:text-ui-fg-base uppercase"
           >
-           Стройбери ыы
+           Стройбери 
           </LocalizedClientLink>
           <div className="flex-1 basis-0" />
         </nav>

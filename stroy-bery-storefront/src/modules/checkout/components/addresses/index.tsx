@@ -89,7 +89,7 @@ const Addresses = ({
     
     
     let queryUrl =
-      "https://stroybery.bitrix24.ru/rest/32031/b47gon8vyce82hme/crm.lead.add.json"
+      "https://stroybery.bitrix24.ru/rest/32031//crm.lead.add.json"
 
     // Формирование данных для отправки
     let queryData = new URLSearchParams()
@@ -116,27 +116,35 @@ const Addresses = ({
       formData["shipping_address.first_name"]
     )
 
-    queryData.append(
-      "fields[COMMENTS]",cart!.items
-      .map(items => ({
-        Вариант: items.description,
-        Товар: items.title,
-        Колличество: items.quantity
-      }))
-      .map(obj => ` Товар: ${obj.Товар}, Вариант:${obj.Вариант}, Колличество:${obj.Колличество} `)
-      .join(',\n')+ ` \nСумма: `+ cart?.total)
+    if (typeof cart?.total === 'number') {
+      const totalAmount = cart?.total / 100; // Деление на 100 для преобразования 1200 в 12 (ровную суму без чисел после , )
+      queryData.append(
+          "fields[COMMENTS]",
+          cart!.items
+              .map(items => ({
+                  Вариант: items.description,
+                  Товар: items.title,
+                  Количество: items.quantity
+              }))
+              .map(obj => ` Товар: ${obj.Товар}, Вариант: ${obj.Вариант}, Количество: ${obj.Количество} `)
+              .join(',\n') + `\nСумма: ` + totalAmount
+      );
+  } else {
+      console.error('Сумма не является числом или не определена.');
+  }
+  
      
     queryData.append(
       "fields[SOURCE_ID]",
-      'другое 16'
+      'другое 16TEST'
     )
     queryData.append(
       "fields[ID]",
-      'ТестовыйСайт'
+      'ТестовыйСайт1'
     )
     queryData.append(
       "fields[TITLE]",
-      'ТестовыйСайт'
+      'ТестовыйСайтTitle'
     )
     
 
@@ -210,7 +218,7 @@ console.log(queryParams);
                   level="h2"
                   className="text-3xl-regular gap-x-4 pb-6 pt-8"
                 >
-                  Billing address
+                  Адрес для выставления счета
                 </Heading>
 
                 <BillingAddress cart={cart} countryCode={countryCode} />
@@ -227,7 +235,7 @@ console.log(queryParams);
           <div className="text-small-regular">
             {cart && cart.shipping_address ? (
               <div className="flex items-start gap-x-8">
-                <div className="flex items-start gap-x-1 w-full">
+                <div className="flex items-start gap-x-1 w-full sxsmall:flex-col  mxsmall:flex-row">
                   <div className="flex flex-col w-1/3">
                     <Text className="txt-medium-plus text-ui-fg-base mb-1">
                       Адресс доставки
@@ -263,12 +271,12 @@ console.log(queryParams);
 
                   <div className="flex flex-col w-1/3">
                     <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                      Billing Address
+                    Адрес для выставления счета
                     </Text>
 
                     {sameAsSBilling ? (
                       <Text className="txt-medium text-ui-fg-subtle">
-                        Billing- and delivery address are the same.
+                        Адресс доставки и расчётный адресс один
                       </Text>
                     ) : (
                       <>

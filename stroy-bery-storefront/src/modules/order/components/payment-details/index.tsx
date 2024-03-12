@@ -14,14 +14,16 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
   return (
     <div>
       <Heading level="h2" className="flex flex-row text-3xl-regular my-6">
-        Payment
+        Оплата  
       </Heading>
+      <p className="text-lg font-mono italic font-semibold  text-lime-600 mb-5">Возможность оплаты картой на сайте в разработке. Временна вся оплата происходит по выставленным счетам </p>
       <div>
         {payment && (
           <div className="flex items-start gap-x-1 w-full">
+            
             <div className="flex flex-col w-1/3">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment method
+                Способ оплаты
               </Text>
               <Text className="txt-medium text-ui-fg-subtle">
                 {paymentInfoMap[payment.provider_id].title}
@@ -29,7 +31,7 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
             </div>
             <div className="flex flex-col w-2/3">
               <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                Payment details
+                Детали оплаты
               </Text>
               <div className="flex gap-2 txt-medium text-ui-fg-subtle items-center">
                 <Container className="flex items-center h-7 w-fit p-2 bg-ui-button-neutral-hover">
@@ -42,7 +44,7 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
                         amount: payment.amount,
                         region: order.region,
                         includeTaxes: false,
-                      })} paid at ${new Date(payment.created_at).toString()}`}
+                      })} счёт создан в ${new Date(payment.created_at).toString()}`}
                 </Text>
               </div>
             </div>

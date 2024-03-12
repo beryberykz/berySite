@@ -79,6 +79,7 @@ const Shipping: React.FC<ShippingProps> = ({
           Доставка
           {!isOpen && cart.shipping_methods.length > 0 && <CheckCircleSolid />}
         </Heading>
+             
         {!isOpen &&
           cart?.shipping_address &&
           cart?.billing_address &&
@@ -141,7 +142,9 @@ const Shipping: React.FC<ShippingProps> = ({
               )}
             </RadioGroup>
           </div>
-
+            <div>
+              <p>Доставка будет расчитываться индивидуально</p>
+            </div>
           <ErrorMessage error={error} />
 
           <Button

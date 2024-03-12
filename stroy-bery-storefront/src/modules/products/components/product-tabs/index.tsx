@@ -15,10 +15,6 @@ type ProductTabsProps = {
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
     {
-      label: "Информация о продукте",
-      component: <ProductInfoTab product={product} />,
-    },
-    {
       label: "Информация о Доставке",
       component: <ShippingInfoTab />,
     },
@@ -91,31 +87,34 @@ const ShippingInfoTab = () => {
         <div className="flex items-start gap-x-2">
           <FastDelivery />
           <div>
-            <span className="font-semibold">Fast delivery</span>
+            <span className="font-semibold">Быстрая доставка</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
+              После всех соглосований доставка будет в течении трёх дней
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Refresh />
           <div>
-            <span className="font-semibold">Simple exchanges</span>
+            <span className="font-semibold">Хранение</span>
             <p className="max-w-sm">
-              Is the fit not quite right? No worries - we&apos;ll exchange your
-              product for a new one.
+              Мы предлагаем услуги хранения вашего товара на наших складах до
+              момента, когда вы решите его доставить. . Воспользуйтесь нашими
+              услугами хранения для безопасного и надежного сохранения вашего
+              товара до момента отправки.
             </p>
           </div>
         </div>
         <div className="flex items-start gap-x-2">
           <Back />
           <div>
-            <span className="font-semibold">Easy returns</span>
+            <span className="font-semibold">Хорошая логистика</span>
             <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
+              Доставка во все города Казахстана. Наши склады расположены в
+              стратегически важных городах, таких как Астана, Шымкент, Алматы,
+              Караганда, Павлодар, Усть-Каменогорск. Благодаря этому мы
+              гарантируем быструю обработку и отправку вашего груза в любое
+              время.
             </p>
           </div>
         </div>

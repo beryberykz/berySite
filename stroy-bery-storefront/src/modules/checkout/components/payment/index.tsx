@@ -219,7 +219,7 @@ const Payment = ({
                   <Text>
                     {cart.payment_session.provider_id === "stripe" && cardBrand
                       ? cardBrand
-                      : "Another step will appear"}
+                      : "Счёт отправит наш менеджер"}
                   </Text>
                 </div>
               </div>

@@ -22,9 +22,11 @@ export default function ProductRail({
     <div className="content-container py-12 small:py-24">
       <div className="flex justify-between mb-8">
         <Text className="txt-xlarge">{collection.title}</Text>
+        <button className="bg-[#5A9C56] text-white px-4 py-2 rounded-md" >
         <InteractiveLink href={`/collections/${collection.handle}`}>
           Каталог
         </InteractiveLink>
+        </button>
       </div>
       <ul className="grid grid-cols-2 small:grid-cols-3 gap-x-6 gap-y-24 small:gap-y-36 justify-items-center`">
   {products &&

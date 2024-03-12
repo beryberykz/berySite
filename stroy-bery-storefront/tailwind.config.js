@@ -50,8 +50,10 @@ module.exports = {
         "8xl": "100rem",
       },
       screens: {
-        "2xsmall": "320px",
+        sxsmall: "320px",
         xsmall: "512px",
+        msmall: "657px",
+        mxsmall: "705px",
         small: "1024px",
         medium: "1280px",
         large: "1440px",
