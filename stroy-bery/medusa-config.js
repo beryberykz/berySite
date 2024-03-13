@@ -86,4 +86,7 @@ module.exports = {
   product_categories: true,
   plugins,
   modules,
+  featureFlags:{
+    product_categories: true,
+  },
 };
